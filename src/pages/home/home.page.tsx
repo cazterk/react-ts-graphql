@@ -1,17 +1,13 @@
 import React from "react";
-import PostGrid from "../../components/post-grid/post-grid.component";
+
+import { useGetPosts } from "../../hooks/posts/useGetPosts";
+import PostGrid from "../../components/posts/post-grid/post-grid.component";
 
 const Home: React.FC = () => {
-  const post = [
-    {
-      id: "postadfcahjsdf",
-      title: "Post Title",
-      body: "Post Body Text Text Text",
-    },
-  ];
+  const posts = useGetPosts();
   return (
     <>
-      <PostGrid posts={post} />
+      <PostGrid posts={posts || []} />
     </>
   );
 };
